@@ -1,0 +1,29 @@
+﻿<Window x:Uid="Window_1" x:Class="lab3Client.dialogs.chooseServer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:lab3Client.Properties"
+        Title="{x:Static p:Resources.CS_Title}" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Style="{DynamicResource window}">
+    <Grid x:Uid="Grid_1" TextBlock.FontSize="14">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Uid="ColumnDefinition_1" Width="Auto"/>
+            <ColumnDefinition x:Uid="ColumnDefinition_2" Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Uid="RowDefinition_1"/>
+            <RowDefinition x:Uid="RowDefinition_2"/>
+            <RowDefinition x:Uid="RowDefinition_3"/>
+        </Grid.RowDefinitions>
+        <Label x:Uid="Label_1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Content="{x:Static p:Resources.CS_Host}"/>
+        <Label x:Uid="Label_2" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Content="{x:Static p:Resources.CS_Port}"/>
+        <TextBox x:Uid="hostBox" Name ="hostBox" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="20"></TextBox>
+        <TextBox x:Uid="portBox" Name ="portBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Margin="20"></TextBox>
+        <Grid x:Uid="Grid_2" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Uid="ColumnDefinition_3" Width="2*"/>
+                <ColumnDefinition x:Uid="ColumnDefinition_4" Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Uid="Button_1" Grid.Column ="0" Margin="20" Click="OK_Click" IsDefault="True" Content="{x:Static p:Resources.ButtonOK}"/>
+            <Button x:Uid="Button_2" Grid.Column ="1" Margin="20" Click="Cancel_Click" Content="{x:Static p:Resources.ButtonCancel}"/> 
+        </Grid>
+    </Grid>
+</Window>

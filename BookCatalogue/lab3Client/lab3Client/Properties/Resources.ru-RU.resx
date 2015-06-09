@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About0" xml:space="preserve">
+    <value>DeWitt, Книжный Каталог v0.5</value>
+  </data>
+  <data name="About1" xml:space="preserve">
+    <value>Интерфейс: WPF; Логика: C#;</value>
+  </data>
+  <data name="About2" xml:space="preserve">
+    <value>1121, Попов Даниил</value>
+  </data>
+  <data name="About3" xml:space="preserve">
+    <value>Университет ИТМО</value>
+  </data>
+  <data name="About4" xml:space="preserve">
+    <value>2015</value>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>О Программе</value>
+  </data>
+  <data name="Add_ErrorInfo" xml:space="preserve">
+    <value>Присутствуют пустые поля!</value>
+  </data>
+  <data name="Add_ErrorISBN" xml:space="preserve">
+    <value>ISBN должен быть 13-значным числом</value>
+  </data>
+  <data name="Add_ErrorWriteTime" xml:space="preserve">
+    <value>Вставьте корректный Год Выхода (ГГГГ)</value>
+  </data>
+  <data name="Add_Title" xml:space="preserve">
+    <value>Добавление книги</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="ButtonOK" xml:space="preserve">
+    <value>ОК</value>
+  </data>
+  <data name="CountLabel" xml:space="preserve">
+    <value>Книг</value>
+  </data>
+  <data name="CS_Host" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="CS_Port" xml:space="preserve">
+    <value>Порт</value>
+  </data>
+  <data name="CS_Title" xml:space="preserve">
+    <value>Выбор сервера</value>
+  </data>
+  <data name="FieldAuthor" xml:space="preserve">
+    <value>Автор</value>
+  </data>
+  <data name="FieldGenre" xml:space="preserve">
+    <value>Жанр</value>
+  </data>
+  <data name="FieldISBN" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="FieldName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="FieldSynopsis" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="FieldWriteTime" xml:space="preserve">
+    <value>Год выхода</value>
+  </data>
+  <data name="FilterLabel" xml:space="preserve">
+    <value>Фильтр: </value>
+  </data>
+  <data name="FilterLabelWordsX1" xml:space="preserve">
+    <value>В названии</value>
+  </data>
+  <data name="FilterLabelWordsX2" xml:space="preserve">
+    <value>слов</value>
+  </data>
+  <data name="Filter_ISBN_N" xml:space="preserve">
+    <value>ISBN Книги меньше Х</value>
+  </data>
+  <data name="Filter_ISBN_P" xml:space="preserve">
+    <value>ISBN Книги больше Х</value>
+  </data>
+  <data name="Filter_NoFilter" xml:space="preserve">
+    <value>Без Фильтра</value>
+  </data>
+  <data name="Filter_Title" xml:space="preserve">
+    <value>Фильтр</value>
+  </data>
+  <data name="Filter_Words" xml:space="preserve">
+    <value>В имени книги Х слов</value>
+  </data>
+  <data name="Filter_WrongInput" xml:space="preserve">
+    <value>Введенный текст не является числом</value>
+  </data>
+  <data name="Filter_WT_N" xml:space="preserve">
+    <value>Книга написана раньше Х</value>
+  </data>
+  <data name="Filter_WT_P" xml:space="preserve">
+    <value>Книга написана позже Х</value>
+  </data>
+  <data name="FS_Title" xml:space="preserve">
+    <value>Поиск по полю</value>
+  </data>
+  <data name="FS_WhatToSearch" xml:space="preserve">
+    <value>Что будем искать?</value>
+  </data>
+  <data name="FS_WrongInput" xml:space="preserve">
+    <value>Вы не указали, что хотите найти</value>
+  </data>
+  <data name="KeywordsHover" xml:space="preserve">
+    <value>Ключевые слова:</value>
+  </data>
+  <data name="KS_Desc" xml:space="preserve">
+    <value>Вставьте ключевые слова, разделяя их символом ';'</value>
+  </data>
+  <data name="KS_Title" xml:space="preserve">
+    <value>Поиск по ключевым словам</value>
+  </data>
+  <data name="MenuButtonAbout" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="MenuButtonAdd" xml:space="preserve">
+    <value>Добавить Книгу</value>
+  </data>
+  <data name="MenuButtonFieldsSearch" xml:space="preserve">
+    <value>Поиск по полям</value>
+  </data>
+  <data name="MenuButtonFilter" xml:space="preserve">
+    <value>Фильтр</value>
+  </data>
+  <data name="MenuButtonFilterStop" xml:space="preserve">
+    <value>Очистить Фильтр</value>
+  </data>
+  <data name="MenuButtonKeywordsSearch" xml:space="preserve">
+    <value>Поиск по кл. словам</value>
+  </data>
+  <data name="MenuButtonMail" xml:space="preserve">
+    <value>Написать Разработчику</value>
+  </data>
+  <data name="MenuButtonRefresh" xml:space="preserve">
+    <value>Обновить Каталог</value>
+  </data>
+  <data name="MenuButtonRemove" xml:space="preserve">
+    <value>Удалить Книгу</value>
+  </data>
+  <data name="MenuButtonSearchStop" xml:space="preserve">
+    <value>Очистить Поиск</value>
+  </data>
+  <data name="MenuButtonServer" xml:space="preserve">
+    <value>Сменить Сервер</value>
+  </data>
+  <data name="MenuButtonSkins" xml:space="preserve">
+    <value>Внешний вид</value>
+  </data>
+  <data name="MenuTabCatalogue1" xml:space="preserve">
+    <value>КАТАЛОГ</value>
+  </data>
+  <data name="MenuTabMisc" xml:space="preserve">
+    <value>ПРОЧЕЕ</value>
+  </data>
+  <data name="MenuTabSearch" xml:space="preserve">
+    <value>ПОИСК / ФИЛЬТР</value>
+  </data>
+  <data name="NoConnection" xml:space="preserve">
+    <value>Не удалось подключиться к серверу. Проверьте соединение.</value>
+  </data>
+  <data name="RemoveConfirm" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить эту книгу: "</value>
+  </data>
+  <data name="RemoveConfirmTitle" xml:space="preserve">
+    <value>Подтверждение удаления</value>
+  </data>
+  <data name="RemoveNoSelect" xml:space="preserve">
+    <value>Вы не выбрали, какую книгу хотите удалить</value>
+  </data>
+  <data name="SearchKW" xml:space="preserve">
+    <value>Кл. Слова (просмотр при наведении)</value>
+  </data>
+  <data name="SearchLabel" xml:space="preserve">
+    <value>Поиск: </value>
+  </data>
+  <data name="SearchLabelInc" xml:space="preserve">
+    <value>включает</value>
+  </data>
+  <data name="SkinDefault" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="SkinMagic" xml:space="preserve">
+    <value>Magic</value>
+  </data>
+  <data name="SortLabel" xml:space="preserve">
+    <value>Сортировка: </value>
+  </data>
+  <data name="Sort_Down" xml:space="preserve">
+    <value>Убывающая</value>
+  </data>
+  <data name="Sort_Up" xml:space="preserve">
+    <value>Возрастающая</value>
+  </data>
+</root>

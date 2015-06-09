@@ -1,0 +1,54 @@
+﻿<Window x:Uid="Window_1" x:Class="lab3Client.dialogs.addBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:lab3Client.Properties"
+        Title="{x:Static p:Resources.Add_Title}" SizeToContent="WidthAndHeight" ResizeMode="NoResize" Style="{DynamicResource window}">
+    <Grid x:Uid="mainGrid" TextBlock.FontSize="14" Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Uid="ColumnDefinition_1" Width="Auto"/>
+            <ColumnDefinition x:Uid="ColumnDefinition_2" Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Uid="RowDefinition_1"/>
+            <RowDefinition x:Uid="RowDefinition_2"/>
+            <RowDefinition x:Uid="RowDefinition_3"/>
+            <RowDefinition x:Uid="RowDefinition_4"/>
+            <RowDefinition x:Uid="RowDefinition_5"/>
+            <RowDefinition x:Uid="RowDefinition_6"/>
+            <RowDefinition x:Uid="RowDefinition_7"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style x:Uid="Style_1" TargetType="Label">
+                <Setter x:Uid="Setter_1" Property="HorizontalAlignment" Value="Right"/>
+                <Setter x:Uid="Setter_2" Property="VerticalAlignment" Value="Center"/>
+                <Setter x:Uid="Setter_3" Property="Margin" Value="10"/>
+            </Style>
+            <Style x:Uid="Style_2" TargetType="TextBox">
+                <Setter x:Uid="Setter_4" Property="HorizontalAlignment" Value="Left"/>
+                <Setter x:Uid="Setter_5" Property="VerticalAlignment" Value="Center"/>
+                <Setter x:Uid="Setter_6" Property="Width" Value="200"/>
+                <Setter x:Uid="Setter_7" Property="Margin" Value="10"/>
+            </Style>
+        </Grid.Resources>
+        <Label x:Uid="Label_1" Grid.Column="0" Grid.Row="0" Content="{x:Static p:Resources.FieldName}"/>
+        <Label x:Uid="Label_2" Grid.Column="0" Grid.Row="1" Content="{x:Static p:Resources.FieldAuthor}"/>
+        <Label x:Uid="Label_3" Grid.Column="0" Grid.Row="2" Content="{x:Static p:Resources.FieldGenre}"/>
+        <Label x:Uid="Label_4" Grid.Column="0" Grid.Row="3" Content="{x:Static p:Resources.FieldWriteTime}"/>
+        <Label x:Uid="Label_5" Grid.Column="0" Grid.Row="4" Content="{x:Static p:Resources.FieldISBN}"/>
+        <Label x:Uid="Label_6" Grid.Column="0" Grid.Row="5" Content="{x:Static p:Resources.FieldSynopsis}"></Label>
+        <TextBox x:Uid="nameBox" Name ="nameBox" Grid.Column="1" Grid.Row="0" LostFocus="tetBox_lostFocus"></TextBox>
+        <TextBox x:Uid="authorBox" Name ="authorBox" Grid.Column="1" Grid.Row="1" LostFocus="tetBox_lostFocus"></TextBox>
+        <TextBox x:Uid="genreBox" Name ="genreBox" Grid.Column="1" Grid.Row="2" LostFocus="tetBox_lostFocus"></TextBox>
+        <TextBox x:Uid="writetimeBox" Name ="writetimeBox" Grid.Column="1" Grid.Row="3" LostFocus="tetBox_lostFocus"></TextBox>
+        <TextBox x:Uid="isbnBox" Name ="isbnBox" Grid.Column="1" Grid.Row="4" LostFocus="tetBox_lostFocus"></TextBox>
+        <TextBox x:Uid="synopsisBox" Name ="synopsisBox" Grid.Column="1" Grid.Row="5" LostFocus="tetBox_lostFocus"></TextBox>
+        <Grid x:Uid="Grid_1" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Uid="ColumnDefinition_3" Width="2*"/>
+                <ColumnDefinition x:Uid="ColumnDefinition_4" Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Uid="Button_1" Grid.Column ="0" Margin="20" Click="addButton_Click" IsDefault="True" Content="{x:Static p:Resources.ButtonOK}"/>
+            <Button x:Uid="Button_2" Grid.Column ="1" Margin="20" Click="Cancel_Click" Content="{x:Static p:Resources.ButtonCancel}"/>
+        </Grid>
+    </Grid>
+</Window>

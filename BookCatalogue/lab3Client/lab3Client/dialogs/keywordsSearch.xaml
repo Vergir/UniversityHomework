@@ -1,0 +1,18 @@
+﻿<Window x:Uid="Window_1" x:Class="lab3Client.dialogs.keywordsSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:lab3Client.Properties"
+          Title="{x:Static p:Resources.KS_Title}" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Style="{DynamicResource window}">
+    <StackPanel x:Uid="StackPanel_1">
+        <Label x:Uid="Label_1" HorizontalAlignment="Center" Margin="5" Content="{x:Static p:Resources.KS_Desc}"/>
+        <TextBox x:Uid="inputBox" HorizontalAlignment="Stretch" Name="inputBox" Width="250"  Margin="10"/>
+        <Grid x:Uid="Grid_1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Uid="ColumnDefinition_1" Width="2*"/>
+                <ColumnDefinition x:Uid="ColumnDefinition_2" Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Uid="Button_1" Grid.Column="0" IsDefault="True" Click="Button_Click_1" Padding="3" Margin="10" Content="{x:Static p:Resources.ButtonOK}"/>
+            <Button x:Uid="Button_2" Grid.Column="1" Click="Button_Click" Padding="3" Margin="10" Content="{x:Static p:Resources.ButtonCancel}"/>
+        </Grid>
+    </StackPanel>
+</Window>

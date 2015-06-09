@@ -1,0 +1,150 @@
+﻿<Window x:Uid="window" x:Class="lab3Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:lab3Client"
+        xmlns:p ="clr-namespace:lab3Client.Properties"
+        Name="window" Title="DeWitt" 
+        MinHeight="200" Width="600" SizeToContent="Height" WindowStartupLocation="CenterOwner" 
+        FontSize="14"
+        Loaded="Window_Loaded"
+        Style="{DynamicResource window}">
+    <Window.Resources>
+        <local:CatalogueWrapper x:Uid="local:CatalogueWrapper_1" x:Key="catalogue"/>
+        <local:BooksToDGEntrysConverter x:Uid="local:BooksToDGEntrysConverter_1" x:Key="dataGridConverter"/>
+    </Window.Resources>
+    <Grid Name="mainGrid" x:Uid="Grid_1" DataContext="{DynamicResource catalogue}">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Uid="RowDefinition_1" Height="Auto"/>
+            <RowDefinition x:Uid="RowDefinition_2"/>
+            <RowDefinition x:Uid="RowDefinition_3" Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TabControl x:Uid="TabControl_1" Grid.Row="0" SelectionChanged="MainMenu_SelectionChanged">
+            <TabControl.Resources>
+                <Style x:Uid="Style_1" TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                    <Setter x:Uid="Setter_1" Property="Focusable" Value="False"/>
+                    <Setter x:Uid="Setter_2" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate x:Uid="DataTemplate_1">
+                                <Border x:Uid="Border_1" BorderBrush="Crimson" BorderThickness="0">
+                                    <StackPanel x:Uid="StackPanel_1">
+                                        <Image x:Uid="Image_1" Width="25" Source="{Binding RelativeSource={RelativeSource AncestorType=Button},Path=Tag}"/>
+                                        <ContentPresenter x:Uid="ContentPresenter_1" Content="{TemplateBinding Property=Content}"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                <Style.Triggers>
+                        <Trigger x:Uid="Trigger_1" Property="IsMouseOver" Value="True">
+                            <Setter x:Uid="Setter_3" Property="Background" Value="PowderBlue"/>
+                        </Trigger>
+                </Style.Triggers>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Name="MenuTabCatalogue" x:Uid="TabItem_1" Header="{x:Static p:Resources.MenuTabCatalogue}">
+                <WrapPanel x:Uid="WrapPanel_1" Orientation="Horizontal">
+                    <Button Name="AddButton" x:Uid="Button_1" Tag="icons/add.png" Click="addButton_Click" Content="{x:Static p:Resources.MenuButtonAdd}"/>
+                    <Button Name="RemoveButton" x:Uid="Button_2" Tag="icons/remove.png" Click="removeButton_Click" Content="{x:Static p:Resources.MenuButtonRemove}"/>
+                    <Separator x:Uid="Separator_1" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                    <Button Name="RefreshButton" x:Uid="Button_3" Tag="icons/refresh.png" Click="refreshButton_Click" Content="{x:Static p:Resources.MenuButtonRefresh}"/>
+                </WrapPanel>
+            </TabItem>
+            <TabItem Name="MenuTabSF" x:Uid="TabItem_2" Header="{x:Static p:Resources.MenuTabSearch}">
+                <WrapPanel x:Uid="WrapPanel_2" Orientation="Horizontal">
+                    <Button Name="FSButton" x:Uid="Button_4" Tag="icons/search3.png" Click="fieldsSearchButton_Click" Content="{x:Static p:Resources.MenuButtonFieldsSearch}"/>
+                    <Button Name="KSButton" x:Uid="Button_5" Tag="icons/search4.png" Click="keywordsSearchButton_Click" Content="{x:Static p:Resources.MenuButtonKeywordsSearch}"/>
+                    <Button Name="SearchStopButton" x:Uid="Button_6" Tag="icons/searchStop.png" Click="searchStop_Click" Content="{x:Static p:Resources.MenuButtonSearchStop}"/>
+                    <Separator x:Uid="Separator_2" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                    <Button Name="FilterButton" x:Uid="Button_7" Tag="icons/filter.png" Click="filterButton_Click" Content="{x:Static p:Resources.MenuButtonFilter}"/>
+                    <Button Name="FilterStopButton" x:Uid="Button_8" Tag="icons/filterStop.png" Click="filterStop_Click" Content="{x:Static p:Resources.MenuButtonFilterStop}"/>
+                </WrapPanel>
+            </TabItem>
+            <TabItem Name="MenuTabMisc" x:Uid="TabItem_3" Header="{x:Static p:Resources.MenuTabMisc}">
+                <WrapPanel x:Uid="WrapPanel_3" Orientation="Horizontal">
+                    <Button Name="ServerButton" x:Uid="Button_9" Tag="icons/server.png" Click="serverButton_Click" Content="{x:Static p:Resources.MenuButtonServer}"/>
+                    <Separator x:Uid="Separator_3" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                    <Button x:Uid="Button_10" Tag="icons/skins.png" Click="skinsButton_Click">
+                        <Expander Name="SkinsExpander" ExpandDirection="Down" Header="{x:Static p:Resources.MenuButtonSkins}">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="DefaultButton" Click="defaultSkin_Click" Content="{x:Static p:Resources.SkinDefault}"/>
+                                <Button Name="MagicButton" Click="magicSkin_Click" Content="{x:Static p:Resources.SkinMagic}"/>
+                            </StackPanel>
+                        </Expander>
+                    </Button>
+                    <Separator x:Uid="Separator_4" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+                    <Button Name="AboutButton" x:Uid="Button_11" Tag="icons/about.png" Click="aboutProgram_Click" Content="{x:Static p:Resources.MenuButtonAbout}"/>
+                    <Button Name="MailButton" x:Uid="Button_12" Tag="icons/mail.png" Click="mailDeveloperButton_Click" Content="{x:Static p:Resources.MenuButtonMail}"/>
+                </WrapPanel>
+            </TabItem>
+        </TabControl>
+
+        <DataGrid  x:Uid="catalogueGrid" Name="catalogueGrid" MinColumnWidth="50" ItemsSource="{Binding Path=Catalogue, Converter={StaticResource dataGridConverter}}" 
+                  HorizontalScrollBarVisibility="Disabled" Margin="1" Grid.Row="1" MaxWidth="{Binding ElementName=window, Path=ActualWidth}"    
+                  Loaded="catalogueGrid_Loaded" Sorting="catalogueGrid_Sorting">
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate x:Uid="DataTemplate_2">
+                    <TextBlock x:Uid="synopsisText" Name="synopsisText" Background="Cornsilk" FontStyle="Italic"
+                               MouseDown="synopsisText_MouseDown" TextTrimming="CharacterEllipsis" Text="{Binding [SYNOPSIS]}"/>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn x:Uid="DataGridTemplateColumn_1" Header="{x:Static p:Resources.FieldName}"  Width="*" SortMemberPath="[NAME]">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:Uid="DataTemplate_3">
+                            <TextBlock x:Uid="TextBlock_1" Text="{Binding [NAME]}" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" TextTrimming="CharacterEllipsis"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Uid="DataGridTemplateColumn_2" Header="{x:Static p:Resources.FieldAuthor}" Width="*" SortMemberPath="[AUTHOR]">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:Uid="DataTemplate_4">
+                            <TextBlock x:Uid="TextBlock_2" Text="{Binding [AUTHOR]}" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" TextTrimming="CharacterEllipsis"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Uid="DataGridTemplateColumn_3" Header="{x:Static p:Resources.FieldGenre}" Width="*" SortMemberPath="[GENRE]">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:Uid="DataTemplate_5">
+                            <TextBlock x:Uid="TextBlock_3" Text="{Binding [GENRE]}" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" TextTrimming="CharacterEllipsis"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Uid="DataGridTemplateColumn_4" Header="{x:Static p:Resources.FieldWriteTime}" Width="Auto" SortMemberPath="[WRITETIME]">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:Uid="DataTemplate_6">
+                            <TextBlock x:Uid="TextBlock_4" Text="{Binding [WRITETIME]}" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" TextTrimming="CharacterEllipsis"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Uid="DataGridTemplateColumn_5" Header="{x:Static p:Resources.FieldISBN}" Width="Auto" SortMemberPath="[ISBN]">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:Uid="DataTemplate_7">
+                            <TextBlock x:Uid="TextBlock_5" Text="{Binding [ISBN]}" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" TextTrimming="CharacterEllipsis"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                </DataGrid.Columns>
+        </DataGrid>
+        
+        <StatusBar x:Uid="StatusBar_1" Grid.Row="2">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate x:Uid="ItemsPanelTemplate_1">
+                    <StackPanel x:Uid="StackPanel_2" HorizontalAlignment="Right" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>   
+            <Label x:Uid="countLabel" Name="countLabel" Padding="0" Content="{Binding ElementName=catalogueGrid, Path=Items.Count}"/>
+            <Label Name="BooksLabel" Padding ="0" Content="{x:Static p:Resources.CountLabel}"/>
+            <Separator x:Uid="Separator_5"/>
+            <Label x:Uid="sortingLabel" Padding="0" Name="sortingLabel" MouseDoubleClick="sortingLabel_MouseDoubleClick"/>
+            <Separator x:Uid="Separator_6"/>
+            <Label x:Uid="searchLabel" Padding="0" Name="searchLabel" MouseDoubleClick="searchLabel_MouseDoubleClick"/>
+            <Separator x:Uid="Separator_7"/>
+            <Label x:Uid="filterLabel" MouseDoubleClick="filterLabel_MouseDoubleClick" Padding="0" Name="filterLabel"/>
+        </StatusBar>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left">
+            <Image Source="icons/US.png" Width="25" MouseUp="US_Click"/>
+            <Image Source="icons/RU.png" Width="25" MouseUp="RU_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

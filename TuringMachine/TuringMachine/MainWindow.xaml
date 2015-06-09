@@ -1,0 +1,75 @@
+﻿<Window x:Class="TuringMachine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TuringMachine"
+        Title="MainWindow" SizeToContent="WidthAndHeight" MaxWidth="550" ResizeMode ="CanMinimize" Loaded="Window_Loaded" Background="LightSteelBlue">
+    <Window.Resources>
+        <local:TapeToSPConverter x:Key="converter"/>
+        <local:TurMach x:Key="machine"/>
+    </Window.Resources>
+    <Grid TextBlock.FontSize="14" DataContext="{DynamicResource machine}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Name="tapeScrollViewer" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center" Margin="10">
+            <ItemsControl  ItemsSource="{Binding Tape, Converter={StaticResource converter}}">
+                <ItemsControl.Resources>
+                    <Style TargetType="TextBox">
+                        <Setter Property="IsReadOnly" Value="True"/>
+                    </Style>
+                </ItemsControl.Resources>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" Name="machineSP"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBox Text="{Binding key}" BorderBrush="{Binding color}" IsReadOnly="True"></TextBox>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <GroupBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Header="State" HorizontalAlignment="Center" Margin="5">
+            <TextBox Name="stateTB" MaxWidth="35" Text="{Binding StringFormat=q{0}, Path=State}"></TextBox>
+        </GroupBox>
+        <StackPanel Margin="5"  Name ="buttonsSP" Orientation ="Horizontal" Grid.Column="0" Grid.ColumnSpan ="2" Grid.Row="2" HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Padding" Value="3"/>
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Name ="startButton" Click="Start_Machine">start</Button>
+            <Button Name ="stepButton" Click="Step_Machine">step</Button>
+            <Button Name ="stopButton" Click="Stop_Machine" IsEnabled="False">stop</Button>
+        </StackPanel>
+        <StackPanel Name ="sliderSP" Visibility ="Collapsed" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3">
+            <Label FontSize="12" HorizontalAlignment="Center">Speed</Label>
+            <Slider Name ="speedSlider" Maximum="1000" Width="{Binding ElementName=buttonsSP, Path=ActualWidth}" ValueChanged="speedSlider_ValueChanged"/>
+        </StackPanel>
+        <GroupBox Name ="dataGridGroupBox" Header="Program" Margin ="10" Grid.Column="0" Grid.Row="4">
+            <DataGrid Name ="dataGrid" Loaded="DataGrid_Loaded">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="" Width="*" Binding="{Binding empty}"/>
+                    <DataGridTextColumn Header="q1" Width="*" Binding="{Binding one}"/>
+                    <DataGridTextColumn Header="q2" Width="*" Binding="{Binding two}"/>
+                    <DataGridTextColumn Header="q3" Width="*" Binding="{Binding three}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <GroupBox Header="Log" Margin ="10" Grid.Column="1" Grid.Row="4" Width="{Binding ElementName=dataGridGroupBox, Path=ActualWidth}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="{Binding ElementName=dataGrid, Path=ActualHeight}">
+                <TextBox Name="Log" IsReadOnly="True" Text="{Binding Log}"></TextBox>
+            </ScrollViewer>
+        </GroupBox>
+    </Grid>
+</Window>
