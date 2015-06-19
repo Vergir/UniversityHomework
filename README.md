@@ -1,4 +1,4 @@
-# University_Homework
+# UniversityHomework
 Some simple utilities I created during my study at ITMO University:
 
 Turing Machine - Turing Machine implementation;
